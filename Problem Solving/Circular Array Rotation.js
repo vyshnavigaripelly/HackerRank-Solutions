@@ -1,8 +1,20 @@
 function circularArrayRotation(a, k, queries) {
-    for (let i = 0; i < queries.length; i++) {
-        let index = (queries[i] + len - (k % len)) % len;
-        result.push(a[index])
+    let lastEl;
+    let foo = [];
+    let i = queries.length;
+
+    if (k < a.length) {
+        const endValues = a.splice(-(k));
+        a = [...endValues, ...a]
     }
 
-    return result;
+    else if (k !== a.length) {
+        while (k--) {
+            lastEl = a.pop();
+            a.unshift(lastEl);
+        }
+    }
+
+    while (i--) { foo[i] = a[queries[i]] }
+    return foo;
 }
