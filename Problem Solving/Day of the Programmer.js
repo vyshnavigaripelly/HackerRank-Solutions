@@ -8,4 +8,4 @@ function dayOfProgrammer(year) {
     } else {
       return '26.09.1918';
     }
-  }
+}
